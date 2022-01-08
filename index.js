@@ -37,5 +37,37 @@ req.send();
 
 //FETCH = va chercher
 //LESSON les API le fectch 15min 31s
-fetch("mon lien")
+ //une fois que l'on a été cherché (alors,ensuite) on créer une promesse (response)avec une fonction fléchée
+// fetch( "https://api.blablagues.net/?rub=blagues")
+// .then((response) =>{
+//    //console.log(response);
+
+//    })
+//    .catch((err)=> console.log(err));//une fois que la fonction est exécutée tu attrapes l'erreur et tu la log
+
+// fetch("data.txt")
+// .then((res) =>{
+//    console.log(res);
+// })
+
+
+
+//pour aller chercher un fichier txt
+//il va chercher data.txt
+//il exécute la response de la méthode text
+//il m'affiche le dossier data.txt en log
+//fetch("data.txt")
+//then((res) => res.text())
+//.then((data) => console.log(data));
+
+
+//pour aller chercher un fichier .json
+//il va chercher json.txt
+//il exécute la response de la méthode json
+// il m'affiche le dossier data.json en log
+fetch("data.json")
+.then((res) => res.json())
+.then((data) => console.log(data));
+
+//lesson API 27 MIN 25S
 
