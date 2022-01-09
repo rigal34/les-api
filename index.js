@@ -21,8 +21,8 @@ req.onload = reqListener ;//au chargement tu m'envois un fonction " reqListener"
 
 // req.open("get", "data.json", true);
 
-req.open("get", "https://api.blablagues.net/?rub=blagues", true);
-req.send();
+// req.open("get", "https://api.blablagues.net/?rub=blagues", true);
+// req.send();
 
 
 // =============================================================================================================================================================================================================================================================================================================================================
@@ -67,7 +67,48 @@ req.send();
 // il m'affiche le dossier data.json en log
 fetch("data.json")
 .then((res) => res.json())
-.then((data) => console.log(data));
+//.then((data) => console.log(data));
 
 //lesson API 27 MIN 25S
+
+//faire passer un object dans le fetch
+
+const myHeaders = new Headers();
+
+const init = {
+method:"GET",//GET c'est pour obtenir de base on est en GET qui veut dire fournit moi les données pour lire les données
+header: myHeaders,
+mode:"cors",//ce qui gére les permissions pour faire des requêtes
+Cache:"default"
+};
+fetch("data.json",init)
+.then((res) => 
+console.log(res));
+
+//-----------------------------------------------------------------------------------------------------
+//CRUD => Create (POST), read (GET),update (PUT),Delete (DELETE) les méthodes les 4 plus populaires
+
+//j 'ai simulé un seveur JSON Lesson api 1H 06 et je vais créer un post poster un message sur cette base de donnée
+
+const init2 = {
+method: "POST",  // le POST on lui passe ces donnée là donc il faut un body
+headers: {
+   "Content-Type": "application/json" //le headers permet de travailler avec des cookies d'authentification "token"pour se faire reconnaître
+},
+body: JSON.stringify({    // l'objet javascript que je te passe je le transforme en json
+pseudo:"Doberman",
+message:"Comment ça va!",
+age: 25
+}),
+mode: "cors",
+credentials: "same-origin",
+};
+
+//je créer un formulaire pour éviter que le fetch solicite non stop mon serveur json
+// SIMULATION server json
+document.querySelector("form").addEventListener("submit", () => {
+fetch("http://localhost:3000/users/", init2).then(() =>
+ console.log("data envoyée")
+);
+});
 
