@@ -112,3 +112,38 @@ fetch("http://localhost:3000/users/", init2).then(() =>
 );
 });
 
+// =======================================================================================================================================================================================================================================================================================================
+//                  A     SSS   Y   Y  N   N   CCC   H   H  RRRR    OOO   N   N  EEEEE
+//      /      /   A A   S      Y   Y  NN  N  C   C  H   H  R   R  O   O  NN  N  E
+//     /      /   A   A   SSS    Y Y   N N N  C      HHHHH  R   R  O   O  N N N  EEE
+//    /      /    AAAAA      S    Y    N  NN  C      H   H  RRRR   O   O  N  NN  E
+//   /      /     A   A      S    Y    N   N  C   C  H   H  R  R   O   O  N   N  E
+//  /      /      A   A  SSSS     Y    N   N   CCC   H   H  R   R   OOO   N   N  EEEEE
+// =======================================================================================================================================================================================================================================================================================================
+// * * * //Asynchrone 
+
+setTimeout (() => {   
+//console.log("test");  test apparaît au bout de 2 secondes
+}, 2000);
+
+
+//Promise ===> les promesses
+// fetch("mon lien ")
+// .then((res) => res) //...........
+
+
+
+//async/await dans la déclaration de la fonction attention je déclare la fonction comme une fonction asynchrone partout ou il y aura await tu attendras que sa se produise
+
+async function fetchData() {
+  await fetch("monlien")
+//attend que le await soit exécuté avant de faire la suite
+   executeFonction();
+}
+ //en mode asynchrone pour que la fonction fonctionnne il faut mettre async devant le =  avec le paramétre comme l'exemple de dessous
+
+ const fetchData2 = async () =>{
+   await fetch("monlien")
+   //attend que le await soit exécuté avant de faire la suite
+      executeFonction();
+ }
